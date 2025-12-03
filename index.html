@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSBU Stage Selector</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSBU Esports Ohio Manager</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>SSBU Stage Selector</h1>
+<h1>Esports Ohio SSBU Manager</h1>
 
-<div id="phaseDisplay"></div>
+<!-- TEAM ENTRY SCREEN -->
+<div id="teamSetup" class="screen">
+    <h2>Enter Team Names</h2>
+    <input id="homeName" placeholder="Home Team Name">
+    <input id="awayName" placeholder="Away Team Name">
+    <button id="saveTeams">Save & Continue</button>
+</div>
 
-<div id="stageContainer" class="grid"></div>
+<!-- STAGE SELECTOR -->
+<div id="stageSelect" class="screen hide">
+    <h2 id="phaseDisplay"></h2>
+    <h3 id="clickDisplay"></h3>
+    <div id="stageContainer" class="grid"></div>
+    <button id="goToStocks">Continue to Stock Tracker</button>
+</div>
 
-<div class="buttons">
-    <button id="resetBtn">Reset</button>
+<!-- STOCK TRACKER -->
+<div id="stockTracker" class="screen hide">
+    <h2 id="roundHeader"></h2>
+
+    <div class="stockBox">
+        <h3 id="homeTeamLabel"></h3>
+        <div>Player Stocks: <span id="homePlayerStocks"></span></div>
+        <div>Team Stocks: <span id="homeTeamStocks"></span></div>
+        <button onclick="loseStock('home')">Home Loses Stock</button>
+    </div>
+
+    <div class="stockBox">
+        <h3 id="awayTeamLabel"></h3>
+        <div>Player Stocks: <span id="awayPlayerStocks"></span></div>
+        <div>Team Stocks: <span id="awayTeamStocks"></span></div>
+        <button onclick="loseStock('away')">Away Loses Stock</button>
+    </div>
+
+    <button id="resetBtn">Reset App</button>
 </div>
 
 <script src="app.js"></script>
 </body>
 </html>
-
